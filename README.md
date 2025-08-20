@@ -43,7 +43,7 @@ To test the app, a **mock backend** is required. We use [`json-server`](https://
 ### 1. Install json-server
 ```bash
 npm install -g json-server
-
+```
 
 
 # Debugging & Optimization — ProfileScreen
