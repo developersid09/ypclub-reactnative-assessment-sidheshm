@@ -21,7 +21,7 @@ export default function OrdersScreen() {
           <View style={styles.card}>
             <Text style={{fontWeight:'700'}}>{item.id}</Text>
             <Text>Items: {item.items.length}</Text>
-            <Text>Total: ${item.total.toFixed(2)}</Text>
+            <Text>Total: Rs.{item.total.toFixed(2)}</Text>
             <Text>Placed: {new Date(item.createdAt).toLocaleString()}</Text>
             <Text>Ship to: {item.address}</Text>
           </View>

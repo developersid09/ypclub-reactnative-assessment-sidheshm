@@ -7,7 +7,6 @@ import CartScreen from '../screens/CartScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import OrdersScreen from '../screens/OrdersScreen';
 import { useSelector } from 'react-redux';
-import { Button } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,6 +17,7 @@ function MainTabs() {
       <Tab.Screen name="Products" component={ProductsScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="Orders" component={OrdersScreen} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Tab.Navigator>
   );
 }
@@ -29,8 +29,7 @@ export default function RootNavigator() {
     <Stack.Navigator>
       {token ? (
         <>
-          <Stack.Screen name="Main" component={MainTabs} options={{ headerShown:false }} />
-          <Stack.Screen name="Checkout" component={CheckoutScreen} />
+          <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }} />
         </>
       ) : (
         <Stack.Screen name="Auth" component={AuthScreen} options={{ headerShown: false }} />

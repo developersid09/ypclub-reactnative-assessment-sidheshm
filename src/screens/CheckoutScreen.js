@@ -10,10 +10,10 @@ export default function CheckoutScreen({ navigation }) {
   const dispatch = useDispatch();
   const [address, setAddress] = useState('');
 
-  const total = items.reduce((s,i)=>s + i.qty * i.product.price, 0);
+  const total = items.reduce((s, i) => s + i.qty * i.product.price, 0);
 
   const placeOrder = async () => {
-    if (!address.trim()) { Alert.alert('Validation','Please enter shipping address'); return; }
+    if (!address.trim()) { Alert.alert('Validation', 'Please enter shipping address'); return; }
 
     const order = {
       id: 'o-' + Date.now(),
@@ -29,15 +29,15 @@ export default function CheckoutScreen({ navigation }) {
       dispatch(clearCart());
       Alert.alert('Success', 'Order placed successfully');
       navigation.navigate('Orders');
-    } catch(e) {
+    } catch (e) {
       Alert.alert('Error', e.message || 'Failed to create order');
     }
   };
 
   return (
-    <View style={{flex:1,padding:12}}>
-      <Text style={{fontWeight:'700',fontSize:18}}>Checkout</Text>
-      <Text style={{marginTop:12}}>Total: ${total.toFixed(2)}</Text>
+    <View style={{ flex: 1, padding: 12 }}>
+      <Text style={{ fontWeight: '700', fontSize: 18 }}>Checkout</Text>
+      <Text style={{ marginTop: 12 }}>Rs. {total.toFixed(2)}</Text>
 
       <TextInput placeholder="Shipping Address" style={styles.input} value={address} onChangeText={setAddress} />
       <Button role="button" title="Place Order" onPress={placeOrder} />
@@ -46,5 +46,5 @@ export default function CheckoutScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  input:{borderWidth:1, borderColor:'#ddd', padding:10, marginVertical:12, borderRadius:6}
+  input: { borderWidth: 1, borderColor: '#ddd', padding: 10, marginVertical: 12, borderRadius: 6 }
 });

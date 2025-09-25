@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { login, register } from '../store/authSlice';
 
 export default function AuthScreen() {
-  const [mode, setMode] = useState('login'); // or 'register'
+  const [mode, setMode] = useState('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ export default function AuthScreen() {
       } else {
         await dispatch(register(name.trim(), email.trim(), password));
       }
-    } catch(e) {
+    } catch (e) {
       Alert.alert('Error', e.message || 'Something went wrong');
     }
   };
@@ -32,14 +32,14 @@ export default function AuthScreen() {
       <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
       <Button role="button" title={mode === 'login' ? 'Login' : 'Register'} onPress={submit} />
       <TouchableOpacity onPress={() => setMode(mode === 'login' ? 'register' : 'login')}>
-        <Text style={{marginTop:12, color:'blue'}}>{mode === 'login' ? 'Create an account' : 'Have an account? Login'}</Text>
+        <Text style={{ marginTop: 12, color: 'blue' }}>{mode === 'login' ? 'Create an account' : 'Have an account? Login'}</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{flex:1, padding:16, justifyContent:'center'},
-  input:{borderWidth:1, borderColor:'#ccc', padding:10, marginBottom:12, borderRadius:6},
-  header:{fontSize:24, fontWeight:'700', marginBottom:16}
+  container: { flex: 1, padding: 16, justifyContent: 'center' },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 12, borderRadius: 6 },
+  header: { fontSize: 24, fontWeight: '700', marginBottom: 16 }
 });
